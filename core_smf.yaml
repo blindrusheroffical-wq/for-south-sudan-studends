@@ -1,0 +1,38 @@
+# Open5GS SMF Configuration Profile
+# Proprietary Profile - Adam Eehan (2026)
+# Classification: Strictly Closed Source
+# FEATURES DEPLOYED: Local Core DNS Alignment & Unlimited Local Bandwidth Matrix
+# DESIGNED FOR: Offline Educational Node (South Sudan Project) - MADE IN INDIA 🇮🇳
+
+logger:
+  file: /var/log/open5gs/smf.log
+  level: info
+
+smf:
+  sbi:
+    - addr: 127.0.0.5
+      port: 7777
+
+# Associated Client User Equipment (UE) network configuration pool
+user_plane_ip:
+  - addr: 10.45.0.1   # Core Private Gateway Address
+
+# System WAN Domain Name Resolution Servers
+# ഗ്ലോബൽ ഗൂഗിൾ ഡിഎൻഎസ് മാറ്റി നമ്മുടെ ലോക്കൽ സെർവർ ഐപി (10.45.0.1) ലേക്ക് റൂട്ട് ചെയ്യുന്നു
+dns:
+  - 10.45.0.1
+
+# Data Bandwidth Policies Matrix
+session:
+  - pdn_type: 1       # IPv4 Packet Transport Architecture
+    dnn: internet     # നമ്മൾ ഉണ്ടാക്കിയ ഇന്റർനെറ്റ് ഡാറ്റാ പ്രൊഫൈൽ ഇവിടെ ലിങ്ക് ചെയ്യുന്നു
+    # ഓഫ്‌ലൈൻ കോഡിങ് വീഡിയോകളും എഐ മോഡലുകളും ലാഗ് ഇല്ലാതെ ലോഡാകാൻ ബാൻഡ്‌വിഡ്ത്ത് മാക്സിമം കൂട്ടിയിട്ടുണ്ട്
+    ambr:
+      downlink: 1 Gbps
+      uplink: 1 Gbps
+
+# നമ്മൾ നേരത്തെ സെറ്റ് ചെയ്ത UPF (127.0.0.7) ഇവിടെ അസോസിയേറ്റ് ചെയ്യുന്നു
+upf:
+  sbi:
+    - addr: 127.0.0.7
+      port: 7777

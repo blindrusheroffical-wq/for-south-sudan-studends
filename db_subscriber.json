@@ -1,0 +1,35 @@
+[
+  {
+    "imsi": "001010000000001",
+    "subscribed_rau_tau_timer": 12,
+    "network_access_mode": 0,
+    "subscriber_status": 0,
+    "access_restriction_data": 0,
+    "slice": [
+      {
+        "sst": 1,
+        "sd": "ffffff",
+        "session": [
+          {
+            "name": "internet",
+            "type": 1,
+            "ue_ip_addr": "10.45.0.5", 
+            "qos": {
+              "index": 1, 
+              "arp": {
+                "priority_level": 1, 
+                "pre_emption_capability": 1,
+                "pre_emption_vulnerability": 0
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "security": {
+      "k": "465B5CE8B199B49FAA5F0A2EE238A6BC",
+      "opc": "E8ED289DEBA952E4285B00330E400934",
+      "amf": "8000"
+    }
+  }
+]

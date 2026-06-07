@@ -1,0 +1,29 @@
+# Open5GS UPF Configuration Profile
+# Proprietary Profile - Adam Eehan (2026)
+# Classification: Strictly Closed Source
+# FEATURES DEPLOYED: Offline Local DNS Subnet Mapping & Internal Data Matrix
+# DESIGNED FOR: Offline Educational Node (South Sudan Project) - MADE IN INDIA 🇮🇳
+
+logger:
+  file: /var/log/open5gs/upf.log
+  level: info
+
+upf:
+  sbi:
+    - addr: 127.0.0.7
+      port: 7777
+
+# GPRS Tunneling Protocol (GTP-U) Data Interface Node Address
+gtpu:
+  - addr: 127.0.0.1
+
+# Network Packet Data Subnet Parameters
+subnet:
+  - addr: 10.45.0.0/24
+    dnn: internet
+    # ഗ്ലോബൽ DNS മാറ്റിക്കൊണ്ട് നമ്മുടെ ലോക്കൽ എഐ/യൂട്യൂബ് ഓഫ്‌ലൈൻ ഗേറ്റ്‌വേ ഐപി (10.45.0.1) നൽകുന്നു
+    dns:
+      - 10.45.0.1
+    # Packet Processing സ്പീഡ് കൂട്ടാനും ഓഫ്‌ലൈൻ വോയ്‌സ്/വീഡിയോ പാക്കറ്റുകൾ (MTU) ക്രാഷാകാതെ വിടാനുമുള്ള കോൺഫിഗറേഷൻ
+    dev: ogstun
+    mtu: 1400
